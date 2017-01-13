@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.dao.CashMapper">
+	
+	<select id="getCash" resultType="com.app.entity.Cash">
+	    select *  from Cash
+	</select>
+    
+    <select id="getPageCash" resultType="com.app.entity.Cash">
+    	select * from Cash limit #{param1},#{param2}
+    </select>
+    
+    <insert id="addCash" parameterType="com.app.entity.Cash">
+		insert into Cash(cName,mName,openDate,csum,cType,memos)
+		values(#{cName},#{mName},#{openDate},#{csum},#{cType},#{memos})
+	</insert>
+	
+	<update id="updateCash" parameterType="com.app.entity.Cash">
+        update Cash
+        <set>
+        	<if test="cId!=null and cId!=''">cId=#{cId},</if>
+            <if test="cName!=null and cName!=''">cName=#{cName},</if>
+            <if test="mName!=null and mName!=''">mName=#{mName},</if>
+            <if test="openDate!=null and openDate!=''">openDate=#{openDate},</if>
+            <if test="csum!=null and csum!=''">csum=#{csum},</if>
+            <if test="cType!=null and cType!=''">cType=#{cType},</if>
+            <if test="memos!=null and memos!=''">memos=#{memos},</if>
+        </set>
+        WHERE cId=#{cId}
+    </update>
+    
+    <delete id="deleteCash">
+    	delete from Cash where
+    	cId in<foreach item="item" index="index" collection="list" 
+                         open="(" separator="," close=")">
+                        #{item}
+                </foreach>
+    </delete>
+
+    <select id="getCByName" parameterType="String" resultType="String">
+    	select cName from Cash where mName=#{mName}
+    </select>
+
+    <select id="getNameById" parameterType="Integer" resultType="String">
+    	select cName from Cash where cId=#{cId}
+    </select>
+</mapper>

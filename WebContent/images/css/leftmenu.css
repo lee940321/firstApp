@@ -1,0 +1,217 @@
+.sm-cat-d1 {
+	width: 190px;
+	height: 290px;
+	position: relative;
+	z-index: 9999;
+}
+.sm-cat-d1 a:link, .sm-cat-d1 a:visited {
+	color: #666;
+	white-space: nowrap;
+}
+.sm-cat-d1 .cat-box {
+	border-width: 1px;
+	border-style: solid;
+	border-left: none;
+	border-right: none;
+	height: 288px;
+	overflow: hidden;
+	position: relative;
+}
+.sm-cat-d1 .cat-list {
+	border-width: 1px;
+	border-style: solid;
+	border-top: none;
+	border-bottom: none;
+	margin-top: -1px;
+	height: 289px;
+}
+.sm-cat-d1 .cat-group {
+	float: left;
+	border-top: 1px solid #F3F3F3;
+	padding: 10px 0 7px;
+	margin: 0 13px;
+	width: 162px;
+	position: relative;
+	z-index: 1;
+	_display: inline;
+}
+.sm-cat-d1 .cat-group h4 {
+	color: #333;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: left;
+	line-height: 14px;
+	padding-bottom: 4px;
+	position: relative;
+	zoom: 1;
+}
+.sm-cat-d1 .cat-group h4 s {
+	background: url([img]http://img03.taobaocdn.com/tps/i3/T1eR6BXX4iXXctdLvr-4-7.png[/img]) no-repeat;
+	font-size: 0;
+	width: 4px;
+	height: 7px;
+	position: absolute;
+	top: 4px;
+	right: 0;
+}
+.sm-cat-d1 .cat-group h4 a:link, .sm-cat-d1 .cat-group h4 a:visited {
+	color: #333;
+	position: relative;
+}
+.sm-cat-d1 .cat-group textarea {
+	display: none;
+}
+.sm-cat-d1 .cat-group ul {
+	margin-right: -5px;
+}
+.sm-cat-d1 .cat-group li {
+	float: left;
+	margin-right: 5px;
+	text-align: left;
+	line-height: 22px;
+	overflow: hidden;
+	word-wrap: break-word;
+	break-word: break-all;
+	zoom: 1;
+}
+.sm-cat-d1 .cat-group-active {
+	border-width: 1px;
+	border-style: solid;
+	border-right: none;
+	padding-left: 13px;
+	padding-right: 13px;
+	margin: 0 -1px -1px -1px;
+	width: 163px;
+	z-index: 9999;
+}
+.sm-cat-d1 .cat-group-active h4 {
+	margin-right: 1px;
+}
+.sm-cat-d1 .cat-popup {
+	border-width: 1px;
+	border-style: solid;
+	position: absolute;
+	top: 0;
+	left: 189px;
+	z-index: -1;
+	visibility: hidden;
+	width: 360px;
+	padding: 5px 0;
+	overflow: hidden;
+}
+.sm-cat-d1 .cat-popup-expand {
+	width: 612px;
+}
+.sm-cat-d1 .cat-popup-active {
+	visibility: visible;
+}
+.sm-cat-d1 .tag-list {
+	border-right: 1px solid #EBEBEB;
+	width: 330px;
+	padding: 0 15px;
+	overflow: hidden;
+	float: left;
+	margin-top: -1px;
+}
+.sm-cat-d1 .tag-group {
+	border-top: 1px dotted #DDD;
+	overflow: hidden;
+	padding: 6px 0;
+	margin-top: -1px;
+	zoom: 1;
+}
+.sm-cat-d1 .tag-group h5 {
+	float: left;
+	width: 66px;
+}
+.sm-cat-d1 .tag-group ul {
+	overflow: hidden;
+	zoom: 1;
+}
+.sm-cat-d1 .tag-group li {
+	float: left;
+	margin-bottom: 4px;
+}
+.sm-cat-d1 .tag-group li b {
+	color: #DDD;
+	font-weight: normal;
+}
+.sm-cat-d1 .tag-group li a {
+	padding: 0 8px;
+}
+.sm-cat-d1 .hot-list {
+	border-left: 1px solid #EBEBEB;
+	width: 221px;
+	margin-left: -1px;
+	padding: 5px 15px 0;
+	overflow: hidden;
+	float: left;
+}
+.sm-cat-d1 .hot-shop {
+	margin-bottom: 15px;
+}
+.sm-cat-d1 .hot-shop h5 {
+	margin-bottom: 4px;
+}
+.sm-cat-d1 .hot-shop li {
+	padding-right: 18px;
+	float: left;
+	line-height: 24px;
+}
+.sm-cat-d1 .hot-brand h5 {
+	margin-bottom: 10px;
+}
+.sm-cat-d1 .hot-brand ul {
+	margin-right: -10px;
+}
+.sm-cat-d1 .hot-brand li {
+	float: left;
+	width: 67px;
+	height: 52px;
+	margin-right: 10px;
+	padding-bottom: 7px;
+	overflow: hidden;
+}
+.sm-cat-d1 .hot-brand a {
+	display: block;
+	overflow: hidden;
+	text-decoration: none;
+}
+.sm-cat-d1 .hot-brand a img {
+	background: #E8E8E8;
+	border: 1px solid #DDD;
+	display: block;
+	width: 65px;
+	height: 32px;
+}
+.sm-cat-d1 .hot-brand a span {
+	display: block;
+	text-align: center;
+}
+.sm-cat-d1 .hot-brand a:hover {
+	border-width: 1px;
+	border-style: solid;
+	zoom: 1;
+}
+.sm-cat-d1 .hot-brand a:hover img {
+	border: none;
+}
+.sm-cat-d1 .hot-brand a:hover span {
+	color: #FFF;
+	padding-top: 1px;
+}
+.sm-cat-d1 .cat-box, .sm-cat-d1 .cat-list { border-color: red; }
+.sm-cat-d1 .cat-group a.highlight { color: red !important; }
+.sm-cat-d1 .cat-group-active {
+  background: #EEE;
+  border-color: red;
+  border-right-color: red;
+}
+.sm-cat-d1 .cat-popup {
+  background: #EEE;
+  border-color: red;
+}
+.sm-cat-d1 .hot-brand a:hover {
+  background:;
+  border-color:;
+}

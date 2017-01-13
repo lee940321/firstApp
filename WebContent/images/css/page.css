@@ -1,0 +1,10 @@
+<!--分页显示-->
+ul {list-style-type:none;}
+<!--去掉超连接的样式-->
+a {text-decoration:none; color:#000;}
+
+ul li {float:left; margin-right:5px;}
+
+ul li a{display:block; padding:3px 10px; border:1px solid #333;}
+
+ul li a:hover {background:orange; color:#fff; border:1px solid #000;}

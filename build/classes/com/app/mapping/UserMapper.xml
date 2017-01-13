@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.dao.UserMapper">
+	<select id="login" parameterType="String" resultType="String">
+		select userPwd from User where userName=#{userName}
+	</select>
+	
+	<select id="getUser" resultType="com.app.entity.User">
+	    select *  from User
+	</select>
+	
+	<select id="getUserByUserName" resultType="com.app.entity.User">
+		select * from User where userName=#{userName}
+	</select>
+	
+	<insert id="addUser" parameterType="com.app.entity.User">
+		insert into User(userName,userPwd,User.group)
+		values(#{userName},#{userPwd},#{group})
+	</insert>
+	
+	<update id="updateUser" parameterType="com.app.entity.User">
+        update user
+        <set>
+        	<if test="userId!=null and userId!=''">userId=#{userId},</if>
+            <if test="userName!=null and userName!=''">userName=#{userName},</if>
+            <if test="userPwd!=null and userPwd!=''">userPwd=#{userPwd},</if>
+            <if test="group!=null and group!=''">User.group=#{group},</if>
+        </set>
+        WHERE userId=#{userId}
+    </update>
+    
+    <delete id="deleteUser">
+    	delete from user where
+    	userId in<foreach item="item" index="index" collection="list" 
+                         open="(" separator="," close=")">
+                        #{item}
+                </foreach>
+    </delete>
+    
+    <select id="getPageUser" resultType="com.app.entity.User">
+    	select * from User limit #{param1},#{param2}
+    </select>
+    
+    <select id="getGroup" parameterType="String" resultType="String">
+		select User.group from User where userName=#{userName}
+	</select>
+</mapper>

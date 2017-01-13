@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.dao.HouseMapper">
+	<select id="getHouse" resultType="com.app.entity.House">
+		select * from House
+	</select>
+	
+	<select id="getPageHouse" resultType="com.app.entity.House">
+		select * from House limit #{param1},#{param2}
+	</select>
+	
+	<insert id="addHouse" parameterType="com.app.entity.House">
+		insert into House(hName,hType,hDate,money,memos,picture)
+		values(#{hName},#{hType},#{hDate},#{money},#{memos},#{picture})
+	</insert>
+	
+	<update id="updateHouse" parameterType="com.app.entity.House">
+        update House
+        <set>
+        	<if test="hId!=null and hId!=''">hId=#{hId},</if>
+            <if test="hName!=null and hName!=''">hName=#{hName},</if>
+            <if test="hType!=null and hType!=''">hType=#{hType},</if>
+            <if test="hDate!=null and hDate!=''">hDate=#{hDate},</if>
+            <if test="money!=null and money!=''">money=#{money},</if>
+            <if test="memos!=null and memos!=''">memos=#{memos},</if>
+            <if test="picture!=null and picture!=''">picture=#{picture},</if>
+        </set>
+        WHERE hId=#{hId}
+    </update>
+    
+    <delete id="deleteHouse">
+    	delete from House where
+    	hId in<foreach item="item" index="index" collection="list" 
+                         open="(" separator="," close=")">
+                        #{item}
+                </foreach>
+    </delete>
+    
+    <select id="getHouseByName" parameterType="String" resultType="com.app.entity.House">
+    	select * from House where hName=#{hName}
+    </select>
+</mapper>

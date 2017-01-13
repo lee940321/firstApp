@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.dao.TypesMapper">
+	
+	<select id="getType" resultType="com.app.entity.Types">
+	    select *  from Types
+	</select>
+	
+	<select id="getTypeByName" resultType="com.app.entity.Types">
+		select * from Types where flag=#{flag}
+	</select>
+	
+	<insert id="addType" parameterType="com.app.entity.Types">
+		insert into Types(typeName,flag)
+		values(#{typeName},#{flag})
+	</insert>
+	
+	<update id="updateType" parameterType="com.app.entity.Types">
+        update Types
+        <set>
+        	<if test="typeId!=null and typeId!=''">typeId=#{typeId},</if>
+            <if test="typeName!=null and typeName!=''">typeName=#{typeName},</if>
+            <if test="flag!=null and flag!=''">flag=#{flag},</if>
+           
+        </set>
+        WHERE typeId=#{typeId}
+    </update>
+    
+    <delete id="deleteType">
+    	delete from Types where
+    	typeId in<foreach item="item" index="index" collection="list" 
+                         open="(" separator="," close=")">
+                        #{item}
+                </foreach>
+    </delete>
+    
+    <select id="getPageType" resultType="com.app.entity.Types">
+    	select * from Types limit #{param1},#{param2}
+    </select>
+    
+    <select id="getType1" resultType="com.app.entity.Types">
+    	select DISTINCT typeName from Types
+    </select>
+    
+    <select id="getType2" parameterType="String" resultType="com.app.entity.Types">
+    	select flag from Types where typeName=#{typeName}
+    </select>
+    
+    <select id="getFlag" parameterType="String" resultType="String">
+    	select flag from Types where typeName=#{typeName}
+    </select>
+</mapper>

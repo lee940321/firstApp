@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.dao.BankMapper">
+	
+	<select id="getBank" resultType="com.app.entity.Bank">
+	    select *  from Banks
+	</select>
+	
+	<select id="getBankByName" resultType="com.app.entity.Bank">
+		select * from Banks where bankName=#{bankName}
+	</select>
+	
+	<insert id="addBank" parameterType="com.app.entity.Bank">
+		insert into Banks(bankName,bshort)
+		values(#{bankName},#{bshort})
+	</insert>
+	
+	<update id="updateBank" parameterType="com.app.entity.Bank">
+        update banks
+        <set>
+        	<if test="bankId!=null and bankId!=''">bankId=#{bankId},</if>
+            <if test="bankName!=null and bankName!=''">bankName=#{bankName},</if>
+            <if test="bshort!=null and bshort!=''">bshort=#{bshort},</if>
+        </set>
+        WHERE bankId=#{bankId}
+    </update>
+    
+    <delete id="deleteBank">
+    	delete from banks where
+    	bankId in<foreach item="item" index="index" collection="list" 
+                         open="(" separator="," close=")">
+                        #{item}
+                </foreach>
+    </delete>
+    
+    <select id="getPageBank" resultType="com.app.entity.Bank">
+    	select * from Banks limit #{param1},#{param2}
+    </select>
+</mapper>

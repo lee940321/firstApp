@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.dao.InoutlistMapper">
+	
+	<select id="getList" resultType="com.app.entity.Inoutlist">
+	    select *  from Inoutlist
+	</select>
+	
+	<select id="getListByName" parameterType="String" resultType="com.app.entity.Inoutlist">
+		select * from Inoutlist where aName=#{aName}
+	</select>
+	
+	<insert id="addList" parameterType="com.app.entity.Inoutlist">
+		insert into Inoutlist(mName,aName,useDate,tName,flag,useSum,sum,memos)
+		values(#{mName},#{aName},#{useDate},#{tName},#{flag},#{useSum},#{sum},#{memos})
+	</insert>
+	
+	<update id="updateList" parameterType="com.app.entity.Inoutlist">
+        update Inoutlist
+        <set>
+        	<if test="listId!=null and listId!=''">listId=#{listId},</if>
+            <if test="mName!=null and mName!=''">mName=#{mName},</if>
+            <if test="aName!=null and aName!=''">aName=#{aName},</if>
+            <if test="useDate!=null and useDate!=''">useDate=#{useDate},</if>
+            <if test="tName!=null and tName!=''">tName=#{tName},</if>
+            <if test="flag!=null and flag!=''">flag=#{flag},</if>
+            <if test="useSum!=null and useSum!=''">useSum=#{useSum},</if>
+            <if test="sum!=null and sum!=''">sum=#{sum},</if>
+            <if test="memos!=null and memos!=''">memos=#{memos},</if>
+        </set>
+        WHERE listId=#{listId}
+    </update>
+    
+    <delete id="deleteList">
+    	delete from Inoutlist where
+    	listId in<foreach item="item" index="index" collection="list" 
+                         open="(" separator="," close=")">
+                        #{item}
+                </foreach>
+    </delete>
+    
+    <select id="getPageList" resultType="com.app.entity.Inoutlist">
+    	select * from Inoutlist limit #{param1},#{param2}
+    </select>
+    
+    <delete id="deleteByName" parameterType="String">
+    	delete from Inoutlist where aName=#{aName}
+    </delete>
+    
+    <select id="getMaxId" parameterType="String" resultType="Integer">
+    	select MAX(listId) from Inoutlist where aName=#{aName}
+    </select>
+    
+    <select id="getSumById" parameterType="Integer" resultType="double">
+    	select sum from Inoutlist where listId=#{listId}
+    </select>
+    
+    <delete id="deleteL" parameterType="String">
+    	delete  from Inoutlist where aName=#{aName}
+    </delete>
+    
+    <select id="getListByDate" parameterType="String" resultType="com.app.entity.Inoutlist">
+    	select * from Inoutlist where useDate=#{useDate}
+    </select>
+    
+    <select id="getSum" resultType="Double">
+    	select SUM(useSum) from inoutlist WHERE mName=#{param1} AND flag=#{param2}
+    </select>
+    
+    <select id="getSum1" resultType="Double">
+    	select SUM(useSum) from inoutlist WHERE flag=#{type}
+    </select>
+    
+    <select id="getYearSum" resultType="Double">
+    	select SUM(useSum) from inoutlist WHERE tName=#{param1} AND useDate LIKE "%"#{param2}"%"
+    </select>
+    
+    <select id="getYearMonth" parameterType="String" resultType="String">
+    	select * from inoutlist where useDate LIKE "%"#{name}"%"
+    </select>
+</mapper>

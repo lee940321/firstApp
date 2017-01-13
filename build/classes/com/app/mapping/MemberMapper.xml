@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.dao.MemberMapper">
+	<select id="getMember" resultType="com.app.entity.Member">
+		select * from Members
+	</select>
+	
+	<select id="getPageMember" resultType="com.app.entity.Member">
+		select * from Members limit #{param1},#{param2}
+	</select>
+	
+	<insert id="addMember" parameterType="com.app.entity.Member">
+		insert into Members(memName,sex,birth,mobile,job,picture)
+		values(#{memName},#{sex},#{birth},#{mobile},#{job},#{picture})
+	</insert>
+	
+	<update id="updateMember" parameterType="com.app.entity.Member">
+        update Members
+        <set>
+        	<if test="memId!=null and memId!=''">memId=#{memId},</if>
+            <if test="memName!=null and memName!=''">memName=#{memName},</if>
+            <if test="sex!=null and sex!=''">sex=#{sex},</if>
+            <if test="birth!=null and birth!=''">birth=#{birth},</if>
+            <if test="mobile!=null and mobile!=''">mobile=#{mobile},</if>
+            <if test="job!=null and job!=''">job=#{job},</if>
+            <if test="picture!=null and picture!=''">picture=#{picture},</if>
+        </set>
+        WHERE memId=#{memId}
+    </update>
+    
+    <delete id="deleteMember">
+    	delete from Members where
+    	memId in<foreach item="item" index="index" collection="list" 
+                         open="(" separator="," close=")">
+                        #{item}
+                </foreach>
+    </delete>
+    
+    <select id="getMemberByName" parameterType="String" resultType="com.app.entity.Member">
+    	select * from Members where memName=#{memName}
+    </select>
+</mapper>

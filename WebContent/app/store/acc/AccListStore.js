@@ -1,0 +1,20 @@
+/**明细的数据集*/
+ Ext.define("app.store.acc.AccListStore",{
+ 	extend:'Ext.data.Store',
+	model:'app.model.list.ListModel',
+	pageSize:10,
+	//autoSync:true,//与服务器同步
+	proxy:{
+		type:"ajax",
+		url:"",
+		reader:{
+			type:"json",
+			root:"rows",
+			totalProperty :'totalCount'		
+		},
+		writer:{
+			type:"json"
+		}
+	},
+	autoLoad:false
+ });

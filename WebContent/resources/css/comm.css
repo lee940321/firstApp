@@ -1,0 +1,127 @@
+.username{  
+    background-image:url(./imgs/table/user.png) !important;  
+    background-repeat:no-repeat;  
+    background-position:right; 
+}
+.password{  
+    background-image:url(./imgs/table/password.gif) !important;  
+    background-repeat:no-repeat;  
+    background-position:right;  
+}
+.table_add {
+    background-image: url(./imgs/table/table_add.png) !important;
+}
+.table_login {
+    background-image: url(./imgs/table/lock.png) !important;
+}
+.table_remove {
+    background-image: url(./imgs/table/table_delete.png) !important;
+}
+.table_edit {
+    background-image: url(./imgs/table/table_edit.png) !important;
+}
+.table_search {
+    background-image: url(./imgs/table/loading.gif) !important;
+}
+.table_refresh {
+    background-image: url(./imgs/table/table_refresh.png) !important;
+}
+.table_save {
+    background-image: url(./imgs/table/table_save.png) !important;
+}
+.tree_model_add{
+	background-image: url(./imgs/tree/tree_model_add.png) !important;
+}
+.tree_folder_add{
+	background-image: url(./imgs/tree/tree_folder_add.png) !important;
+}
+.tree_func_add{
+	background-image: url(./imgs/tree/tree_func_add.png) !important;
+}
+.tree_root{
+	background-image: url(./imgs/tree/tree_root.png) !important;
+}
+.tree_delete{
+	background-image: url(./imgs/tree/tree_delete.png) !important;
+}
+.tree_ok{
+	background-image: url(./imgs/tree/tree_ok.png) !important;
+}
+.tree_user_add{
+	background-image: url(./imgs/tree/tree_user_add.png) !important;
+}
+.tree_user{
+	background-image: url(./imgs/tree/tree_user.png) !important;
+}
+.tree_role_add{
+	background-image: url(./imgs/tree/tree_role_add.png) !important;
+}
+.tree_role_delete{
+	background-image: url(./imgs/tree/tree_role_delete.png) !important;
+}
+.tree_role_see{
+	background-image: url(./imgs/tree/tree_role_see.png) !important;
+}
+.tree_perm_set{
+	background-image: url(./imgs/tree/tree_perm_set.png) !important;
+}
+.return{
+	background-image: url(./imgs/form/return.png) !important;
+}
+.wfstart{
+	background-image: url(./imgs/wf/wfstart.png) !important;
+}
+.wftake{
+	background-image: url(./imgs/wf/take.png) !important;
+}
+.wfend{
+	background-image: url(./imgs/wf/end.png) !important;
+}
+.wfnext{
+	background-image: url(./imgs/wf/next.png) !important;
+}
+.wfback{
+	background-image: url(./imgs/wf/back.png) !important;
+}
+.wfreturn{
+	background-image: url(./imgs/wf/wfreturn.png) !important;
+}
+.chart_pie {
+  background-image: url(./imgs/table/chart_pie.png) !important;
+}
+.chart_bar {
+  background-image: url(./imgs/table/chart_bar.png) !important;
+}
+.chart_column {
+  background-image: url(./imgs/table/chart_column.png) !important;
+}
+.menu_reports{
+	background-image: url(./imgs/table/chart_line.png) !important;
+}
+.member{
+	background-image: url(./imgs/tree/member.png) !important;
+}
+.account{
+	background-image: url(./imgs/tree/account.png) !important;
+}
+.bank{
+	background-image: url(./imgs/tree/bank.png) !important;
+}
+.zc{
+	background-image: url(./imgs/tree/zc.png) !important;
+}
+.bk{
+	background-image: url(./imgs/tree/bk.png) !important;
+}
+.mx{
+	background-image: url(./imgs/tree/mx.jpg) !important;
+}
+.lx{
+	background-image: url(./imgs/tree/lx.jpg) !important;
+}
+.down{
+	background-image: url(./imgs/table/down.png) !important;
+}
+.down1{
+	background-image: url(./imgs/table/table_file_down.png) !important;
+}

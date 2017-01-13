@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.dao.AccountMapper">
+	
+	<select id="getAcc" resultType="com.app.entity.Account">
+	    select *  from Account
+	</select>
+	
+	<select id="getAccByName" resultType="com.app.entity.Account">
+		select * from Account where atype=#{atype}
+	</select>
+	
+	<insert id="addAcc" parameterType="com.app.entity.Account">
+		insert into Account(atype,bName,mName,openDate,flag,asum,picture,memos)
+		values(#{atype},#{bName},#{mName},#{openDate},#{flag},#{asum},#{picture},#{memos})
+	</insert>
+	
+	<update id="updateAcc" parameterType="com.app.entity.Account">
+        update account
+        <set>
+        	<if test="accountId!=null and accountId!=''">accountId=#{accountId},</if>
+            <if test="atype!=null and atype!=''">atype=#{atype},</if>
+            <if test="bName!=null and bName!=''">bName=#{bName},</if>
+            <if test="mName!=null and mName!=''">mName=#{mName},</if>
+            <if test="openDate!=null and openDate!=''">openDate=#{openDate},</if>
+            <if test="flag!=null and flag!=''">flag=#{flag},</if>
+            <if test="asum!=null and asum!=''">asum=#{asum},</if>
+            <if test="picture!=null and picture!=''">picture=#{picture},</if>
+            <if test="memos!=null and memos!=''">memos=#{memos},</if>
+        </set>
+        WHERE accountId=#{accountId}
+    </update>
+    
+    <delete id="deleteAcc">
+    	delete from Account where
+    	accountId in<foreach item="item" index="index" collection="list" 
+                         open="(" separator="," close=")">
+                        #{item}
+                </foreach>
+    </delete>
+    
+    <select id="getPageAcc" resultType="com.app.entity.Account">
+    	select * from Account limit #{param1},#{param2}
+    </select>
+    
+    <select id="findNameById" parameterType="Integer" resultType="String">
+    	select atype from Account where accountId=#{accountId}
+    </select>
+    
+    <select id="getA" parameterType="String" resultType="String">
+    	select atype from Account where mName=#{mName}
+    </select>
+</mapper>
